@@ -97,7 +97,6 @@ def time2point(class_time: dict, class_name: str):
 
 
 web = Chrome.WebBrowser(False)
-
 n = 0
 while True:
     get_class('1')

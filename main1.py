@@ -45,7 +45,7 @@ def get_class(campusid: str = '1', term: str = '2'):
             no_class_list.append(best_class['name'])
             Sms.SendSMS('13067764287', str(best_class['name']) + '尝试报名,结果为:' + str(code))
         name_list = [x['specialtyName'] for x in rt['msg']]
-        Sms.SendSMS('13067764287', '地点：'+campusid+'\n'+','.join(name_list))
+        Sms.SendSMS('13067764287', '地点'+campusid+'\n'+','.join(name_list))
         print(name_list)
 
 

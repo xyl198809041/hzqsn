@@ -46,7 +46,7 @@ def get_class(campusid: str = '1', term: str = '2'):
             # Sms.SendSMS('13067764287', str(best_class['name']) + '尝试报名,结果为:' + str(code))
             Sms.SendSMS('15858291872', str(best_class['name']) + '尝试报名,结果为:' + str(code))
         name_list = [x['specialtyName'] for x in rt['msg']]
-        Sms.SendSMS('15858291872', ','.join(name_list))
+        Sms.SendSMS('15858291872', campusid+'\n,'.join(name_list))
         print(name_list)
 
 
@@ -104,10 +104,6 @@ while True:
     get_class('1')
     time.sleep(60)
     get_class('4')
-    time.sleep(60)
-    get_class('1', '1')
-    time.sleep(60)
-    get_class('4', '1')
     time.sleep(60)
     n = n + 1
     if n % 10 == 0:

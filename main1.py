@@ -43,10 +43,9 @@ def get_class(campusid: str = '1', term: str = '2'):
         if best_class['point'] > 0:
             code = bao_ming(best_class['class_id'])
             no_class_list.append(best_class['name'])
-            # Sms.SendSMS('13067764287', str(best_class['name']) + '尝试报名,结果为:' + str(code))
-            Sms.SendSMS('15858291872', str(best_class['name']) + '尝试报名,结果为:' + str(code))
+            Sms.SendSMS('13067764287', str(best_class['name']) + '尝试报名,结果为:' + str(code))
         name_list = [x['specialtyName'] for x in rt['msg']]
-        Sms.SendSMS('15858291872', ','.join(name_list))
+        Sms.SendSMS('13067764287', campusid+'\n,'.join(name_list))
         print(name_list)
 
 
@@ -61,28 +60,28 @@ def str2time(s: str):
 
 def time2point(class_time: dict, class_name: str):
     time2point_list = {
-        800: 1,
-        900: 1,
-        1000: 1,
-        1100: 1,
-        1200: 1,
-        1300: 1,
-        1400: 1,
-        1500: 1,
-        1600: 1,
-        1700: 2,
-        1800: 1,
-        1900: 1,
-        2000: 1
+        800: 2,
+        900: 3,
+        1000: 4,
+        1100: 4,
+        1200: 2,
+        1300: 0,
+        1400: 0,
+        1500: 0,
+        1600: 4,
+        1700: 3,
+        1800: 3,
+        1900: 2,
+        2000: 0
     }
     week2point = {
-        '一': 1,
-        '二': 1,
-        '三': 1,
-        '四': 1,
-        '五': 1,
+        '一': 0,
+        '二': 0,
+        '三': 0,
+        '四': 0,
+        '五': 0,
         '六': 1,
-        '日': 1
+        '日': 2
     }
     time_point = 0
     week_point = 0
@@ -104,10 +103,6 @@ while True:
     get_class('1')
     time.sleep(60)
     get_class('4')
-    time.sleep(60)
-    get_class('1', '1')
-    time.sleep(60)
-    get_class('4', '1')
     time.sleep(60)
     n = n + 1
     if n % 10 == 0:

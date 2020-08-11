@@ -43,10 +43,9 @@ def get_class(campusid: str = '1', term: str = '2'):
         if best_class['point'] > 0:
             code = bao_ming(best_class['class_id'])
             no_class_list.append(best_class['name'])
-            # Sms.SendSMS('13067764287', str(best_class['name']) + '尝试报名,结果为:' + str(code))
-            Sms.SendSMS('15858291872', str(best_class['name']) + '尝试报名,结果为:' + str(code))
+            Sms.SendSMS('13067764287', str(best_class['name']) + '尝试报名,结果为:' + str(code))
         name_list = [x['specialtyName'] for x in rt['msg']]
-        Sms.SendSMS('15858291872', campusid+'\n,'.join(name_list))
+        Sms.SendSMS('13067764287', campusid+'\n,'.join(name_list))
         print(name_list)
 
 

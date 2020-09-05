@@ -100,8 +100,6 @@ def time2point(class_time: dict, class_name: str):
 web = Chrome.WebBrowser(False)
 n = 0
 while True:
-    get_class('1')
-    time.sleep(60)
     get_class('4')
     time.sleep(60)
     n = n + 1
